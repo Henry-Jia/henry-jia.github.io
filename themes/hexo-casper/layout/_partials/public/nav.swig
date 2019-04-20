@@ -9,9 +9,10 @@
                     <img src="{{ theme.blog_logo }}" alt="{{ config.title }}" />
                 </a>
                 {% endif %}
-                {% else %}
-                <a href="{{ config.root }}" title="Home">HOME</a>
                 {% endif %}
+            </li>
+            <li>
+                <a href="{{ config.root }}" title="Home">HOME</a>
             </li>
             {% if theme.menu %}
             {% for menu,link in theme.menu %}
