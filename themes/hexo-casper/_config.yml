@@ -1,7 +1,7 @@
 # Config
 rss:            # link
 favicon: https://i.loli.net/2017/11/26/5a19c0b50432e.png
-blog_logo: 
+blog_logo: http://pq8vrurbf.bkt.clouddn.com/playing.jpg
 header_image: https://i.loli.net/2017/11/26/5a19c56faa29f.jpg
 bio: 虽有多闻，若不修行，与不闻等。
 post_toc: true
@@ -16,7 +16,7 @@ menu:
   # you can add here
 
 # author
-author_image:   # link
+author_image: http://pq8vrurbf.bkt.clouddn.com/playing.jpg
 author_bio: 抱道不曲 拥书自雄
 author_location: Xi'an
 
