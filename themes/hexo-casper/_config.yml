@@ -3,7 +3,7 @@ rss:            # link
 favicon: https://i.loli.net/2017/11/26/5a19c0b50432e.png
 blog_logo: 
 header_image: https://i.loli.net/2017/11/26/5a19c56faa29f.jpg
-bio: Henry Jia's Blog
+bio: 虽有多闻，若不修行，与不闻等。
 post_toc: true
 
 # Keywords
@@ -17,8 +17,8 @@ menu:
 
 # author
 author_image:   # link
-author_bio: 
-author_location: 
+author_bio: 抱道不曲 拥书自雄
+author_location: Xi'an
 
 # Social Links
 social:

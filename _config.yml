@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: 行闻
+subtitle: Henry-Jia's Blog
 description:
-keywords:
-author: John Doe
-language:
-timezone:
+keywords: Henry Jia, Blog, Python
+author: Henry Jia
+language: zh-CN
+timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: http://henry-jia.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
