@@ -79,7 +79,7 @@ theme: hexo-casper
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/Henry-Jia/henry-jia.github.io.git
+  repo: https://Travis_Token@github.com/Henry-Jia/henry-jia.github.io.git
   branch: master
   # message: [message] # 提交信息
   name: henry-jia
