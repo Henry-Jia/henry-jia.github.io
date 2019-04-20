@@ -3,15 +3,6 @@
     <div class="site-nav-left">
         <ul class="nav">
             <li>
-                {% if theme.blog_logo %}
-                {% if not is_home() %}
-                <a class="site-nav-logo" href="{{ config.root }}"  title="{{ config.title }}">
-                    <img src="{{ theme.blog_logo }}" alt="{{ config.title }}" />
-                </a>
-                {% endif %}
-                {% endif %}
-            </li>
-            <li>
                 <a href="{{ config.root }}" title="Home">HOME</a>
             </li>
             {% if theme.menu %}
