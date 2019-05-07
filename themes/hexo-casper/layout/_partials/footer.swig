@@ -13,8 +13,8 @@
             		{% for key,link in theme.footer %}
             		<a href="{{ link }}" title="{{ key }}" target="_blank" rel="noopener">{{ key }}</a>
             		{% endfor %}
-            		<span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
-			<span id="busuanzi_container_site_uv">本站总访客数<span id="busuanzi_value_site_uv"></span>次</span>
+            		<span id="busuanzi_container_site_pv"><i class="fas fa-user"></i><span id="busuanzi_value_site_pv"></span>次</span>
+			<span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span>次</span>
             		{{ link_to('https://hexo.io', 'Hexo', {external: true})}}
             		{{ link_to('https://github.com/xzhih/hexo-theme-casper', 'Casper', {external: true})}}
             	</nav>
