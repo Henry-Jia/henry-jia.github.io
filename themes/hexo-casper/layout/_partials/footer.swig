@@ -14,7 +14,7 @@
             		<a href="{{ link }}" title="{{ key }}" target="_blank" rel="noopener">{{ key }}</a>
             		{% endfor %}
             		<span id="busuanzi_container_site_pv"><i class="fas fa-user"></i><span id="busuanzi_value_site_pv"></span>次</span>
-			<span id="busuanzi_container_site_uv"><i class="fas fa-user"></i><span id="busuanzi_value_site_uv"></span>次</span>
+			<span id="busuanzi_container_site_uv"><i class="fa fa-eye"></i><span id="busuanzi_value_site_uv"></span>次</span>
             		{{ link_to('https://hexo.io', 'Hexo', {external: true})}}
             		{{ link_to('https://github.com/xzhih/hexo-theme-casper', 'Casper', {external: true})}}
             	</nav>
