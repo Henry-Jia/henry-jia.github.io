@@ -10,7 +10,8 @@
 			&copy; {{ date(Date.now(), 'YYYY') }}
 		</section>
 		<section class="count">
-			<span id="busuanzi_container_site_uv">总访客：<span id="busuanzi_value_site_uv"></span>次</span>&nbsp;❤️&nbsp;
+			<span id="busuanzi_container_site_uv">总访客：<span id="busuanzi_value_site_uv"></span>次</span>
+			&nbsp;💖&nbsp;
 			<span id="busuanzi_container_site_pv">总浏览：<span id="busuanzi_value_site_pv"></span>次</span>
 		</section>
             	<nav class="site-footer-nav">
