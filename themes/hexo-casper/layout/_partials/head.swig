@@ -82,6 +82,4 @@
 	<meta property="article:author" content="{{ config.author }}">
 	<meta property="article:published_first" content="{{ config.title }}, {{ url_for(page.path) }}" />
 	{% endif %}
-	
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
