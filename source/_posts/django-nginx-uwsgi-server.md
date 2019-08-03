@@ -6,8 +6,8 @@ categories:
 tags:
 - django
 - web服务器
-cover_img: http://pq8vrurbf.bkt.clouddn.com/django-server.jpg
-feature_img: http://pq8vrurbf.bkt.clouddn.com/django-server.jpg
+cover_img: http://pvnmwgual.bkt.clouddn.com/django-server.jpg
+feature_img: http://pvnmwgual.bkt.clouddn.com/django-server.jpg
 description: 在Centos7中，结合nginx和uwsgi，搭建一个完整的django网站服务器...
 keywords: django,nginx,uwsgi,server
 ---
