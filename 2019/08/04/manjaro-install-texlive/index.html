@@ -17,16 +17,16 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Manjaro安装与优化全记录 | 行闻</title>
+	<title>在Mnajaro Linux中安装TexLive | 行闻</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<meta name="generator" content="hexo">
 	<meta name="author" content="Henry Jia">
-	<meta name="description" content="学习安装当前较受欢迎的manjaro linux系统，并对其进行优化...">
+	<meta name="description" content="学习在manjaro linux系统中搭建Latex写作环境...">
 
 	
-	<meta name="keywords" content="linux,manjaro,gnome">
+	<meta name="keywords" content="latex,linux,manjaro">
 	
 
 	
@@ -45,14 +45,14 @@
 
 	<meta property="og:site_name" content="行闻">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="Manjaro安装与优化全记录 | 行闻">
-	<meta property="og:description" content="学习安装当前较受欢迎的manjaro linux系统，并对其进行优化...">
-	<meta property="og:url" content="http://henry-jia.github.io/2019/08/03/Manjaro安装与优化全记录/">
+	<meta property="og:title" content="在Mnajaro Linux中安装TexLive | 行闻">
+	<meta property="og:description" content="学习在manjaro linux系统中搭建Latex写作环境...">
+	<meta property="og:url" content="http://henry-jia.github.io/2019/08/04/manjaro-install-texlive/">
 
 	
-	<meta property="article:published_time" content="2019-08-03T17:08:00+08:00"> 
+	<meta property="article:published_time" content="2019-08-04T21:08:00+08:00"> 
 	<meta property="article:author" content="Henry Jia">
-	<meta property="article:published_first" content="行闻, /2019/08/03/Manjaro安装与优化全记录/">
+	<meta property="article:published_first" content="行闻, /2019/08/04/manjaro-install-texlive/">
 	
 </head>
 
@@ -119,8 +119,8 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2019-08-03T09:30:02.000Z" itemprop="datePublished">
-                    2019-08-3
+                <time class="post-full-meta-date" datetime="2019-08-04T13:49:06.000Z" itemprop="datePublished">
+                    2019-08-4
                 </time>
                 
                 <span class="date-divider">/</span>
@@ -129,44 +129,47 @@
                 
                 
             </section>
-            <h1 class="post-full-title">Manjaro安装与优化全记录</h1>
+            <h1 class="post-full-title">在Mnajaro Linux中安装TexLive</h1>
         </header>
         <article class="post-full ">
             
-            <figure class="post-full-image" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/manjaro.png)">
+            <figure class="post-full-image" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/desk-email-laptop-7112.jpg)">
             </figure>
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>之前用过一段时间的linux后，又回到了windows。最近假期又起了折腾之心，想要回到linux的怀抱，于是就尝试了一下新火的manjaro，特此记录，与大家分享。</p>
-<h3 id="安装manjaro"><a href="#安装manjaro" class="headerlink" title="安装manjaro"></a>安装manjaro</h3><p>首先从官网下载所需镜像，我选择的是gnome版本，大家可以根据个人喜好和机器配置进行选择。</p>
-<p>linux系统下可以直接使用dd命令，windows用户可以使用rufus软件将镜像写入U盘，具体参考百度。</p>
-<p>U盘启动盘制作好后插入电脑，重启电脑，开机界面出现后按快捷键进入启动盘选择界面，按上下键选择U盘启动，我的联想笔记本快捷键是F12，大家可以根据自己的电脑型号自行查找快捷键。</p>
-<p>U盘启动之后，第一步使用enter和上下键选择时区、语言，然后点击第五项Boot，进入下一步。</p>
-<p>如果需要，可以在窗口左上角可以选择语言Chinese，选择启动安装程序，然后一直点击下一步，根据自己情况设置安装硬盘和分区。</p>
-<p>最后等待安装完成，拔掉U盘，重启电脑即可进入焕然一新的Manjaro。</p>
-<p>接下来我们完成基本的设置和安装一些必备软件。</p>
-<h3 id="更换源"><a href="#更换源" class="headerlink" title="更换源"></a>更换源</h3><p>寻找国内最快源：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman-mirrors -c China</span><br></pre></td></tr></table></figure>
-<p>sudo nano <code>/etc/pacman.conf</code>，末尾添加两行：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[archlinuxcn]</span><br><span class="line">Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span><br></pre></td></tr></table></figure>
-<h3 id="更新系统"><a href="#更新系统" class="headerlink" title="更新系统"></a>更新系统</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
-<h3 id="安装archlinuxcn-keyring"><a href="#安装archlinuxcn-keyring" class="headerlink" title="安装archlinuxcn-keyring:"></a>安装<code>archlinuxcn-keyring</code>:</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S archlinuxcn-keyring</span><br><span class="line">sudo pacman -Syu</span><br></pre></td></tr></table></figure>
-<h3 id="修改Home下的目录为英文"><a href="#修改Home下的目录为英文" class="headerlink" title="修改Home下的目录为英文"></a>修改Home下的目录为英文</h3><p>修改目录映射文件名；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~/.config/user-dirs.dirs</span><br></pre></td></tr></table></figure>
-<p>修改为以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">XDG_DESKTOP_DIR=&quot;$HOME/Desktop&quot;</span><br><span class="line">XDG_DOWNLOAD_DIR=&quot;$HOME/Download&quot;</span><br><span class="line">XDG_TEMPLATES_DIR=&quot;$HOME/Templates&quot;</span><br><span class="line">XDG_PUBLICSHARE_DIR=&quot;$HOME/Public&quot;</span><br><span class="line">XDG_DOCUMENTS_DIR=&quot;$HOME/Documents&quot;</span><br><span class="line">XDG_MUSIC_DIR=&quot;$HOME/Music&quot;</span><br><span class="line">XDG_PICTURES_DIR=&quot;$HOME/Pictures&quot;</span><br><span class="line">XDG_VIDEOS_DIR=&quot;$HOME/Videos&quot;</span><br></pre></td></tr></table></figure>
-<p>将Home目录下的中文目录名改为对应的中文名；</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">mv 公共 Public</span><br><span class="line">mv 模板 Templates</span><br><span class="line">mv 视频 Videos</span><br><span class="line">mv 图片 Pictures</span><br><span class="line">mv 文档 Documents</span><br><span class="line">mv 下载 Download</span><br><span class="line">mv 音乐 Music</span><br><span class="line">mv 桌面 Desktop</span><br></pre></td></tr></table></figure>
-<p>重启系统。</p>
-<h3 id="安装搜狗输入法"><a href="#安装搜狗输入法" class="headerlink" title="安装搜狗输入法"></a>安装搜狗输入法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S fcitx-im    <span class="comment">#全部安装</span></span><br><span class="line">sudo pacman -S fcitx-configtool</span><br><span class="line">sudo pacman -S fcitx-sogoupinyin</span><br></pre></td></tr></table></figure>
-<p>sudo nano ~/.xprofile`文件，加入如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export GTK_IM_MODULE=fcitx</span><br><span class="line">export QT_IM_MODULE=fcitx</span><br><span class="line">export XMODIFIERS=&quot;@im=fcitx&quot;</span><br></pre></td></tr></table></figure>
-<p>之后，自行百度安装Chrome、QQ、Wechat、网易云音乐、WPS等，这些可网上的命令直接安装，一路顺畅没有遇到问题。</p>
-<h3 id="更换主题和图标"><a href="#更换主题和图标" class="headerlink" title="更换主题和图标"></a>更换主题和图标</h3><p>系统自带了gnome-tweak-tool，名字为“优化”，可以用来更换主题和进行个性化设置。</p>
-<p>推荐在 <a href="https://www.gnome-look.org/" target="_blank" rel="noopener">https://www.gnome-look.org/</a> 下载自己喜欢的主题，下载好压缩包之后解压，然后以管理员身份打开/usr/share/themes文件夹，将解压后得到的文件夹复制进去。</p>
-<p>打开“优化”，即可选择自己安装的主题，我使用的是Ant Dracula主题。</p>
-<p>另外，从github中下载主题需要自行编译，不推荐。</p>
+                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近开始尝试使用Latex进行论文写作，根据网友推荐，选择Texlive作为基本环境，windows机器上可以很方便的安装Texlive，在Manjaro Linux系统下也不算复杂，我将我的安装过程写在这里与大家分享。</p>
+<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>推荐使用方法二。</p>
+<h3 id="安装Perl组件"><a href="#安装Perl组件" class="headerlink" title="安装Perl组件"></a>安装Perl组件</h3><p>终端运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S perl-tk</span><br></pre></td></tr></table></figure>
+<h3 id="下载iso文件"><a href="#下载iso文件" class="headerlink" title="下载iso文件"></a>下载iso文件</h3><p>在清华大学镜像站下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/</a> </p>
+<p>我选择的是 texlive2019.iso，点击即开始下载，3.3G有点大。</p>
+<h3 id="加载iso文件"><a href="#加载iso文件" class="headerlink" title="加载iso文件"></a>加载iso文件</h3><p>终端运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop /path/to/texlive2019-20190410.iso /mnt</span><br></pre></td></tr></table></figure>
+<p>如果提示：mount: /mnt: 警告：设备写保护，使用只读方式挂载. 忽略即可。</p>
+<h3 id="启动安装界面"><a href="#启动安装界面" class="headerlink" title="启动安装界面"></a>启动安装界面</h3><p>终端执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">sudo ./install-tl -gui</span><br></pre></td></tr></table></figure>
+<p>出现图形化安装界面，一般不需进行个性化设置，点击安装即可，喝杯水耐心等待安装完成。</p>
+<p>添加环境变量，运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~/.bashrc</span><br></pre></td></tr></table></figure>
+<p>在文件末尾，添加如下内容：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># texlive 2019</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="variable">$&#123;MANPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/doc/man</span><br><span class="line"><span class="built_in">export</span> INFOPATH=<span class="variable">$&#123;INFOPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/doc/info</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/bin/x86_64-linux</span><br></pre></td></tr></table></figure>
+<p>别忘记卸载镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/</span><br></pre></td></tr></table></figure>
+<p>测试，新建test.tex文件，添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">hello \LaTeX</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在终端运行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xelatex /path/to/test.tex</span><br></pre></td></tr></table></figure>
+<p>如安装成功，得到如下输出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex)</span><br><span class="line"> restricted \write18 enabled.</span><br><span class="line">entering extended mode</span><br><span class="line">(./textest.tex</span><br><span class="line">LaTeX2e &lt;2018-12-01&gt;</span><br><span class="line">(/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/tex/latex/base/article.cls</span><br><span class="line">Document Class: article 2018/09/03 v1.4i Standard LaTeX document class</span><br><span class="line">(/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/tex/latex/base/size10.clo))</span><br><span class="line">No file textest.aux.</span><br><span class="line">[1] (./textest.aux) )</span><br><span class="line">Output written on textest.pdf (1 page).</span><br><span class="line">Transcript written on textest.log.</span><br></pre></td></tr></table></figure>
+<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>Archlinux已经有了有关texlive的包，简单的方法就是执行以下命令直接安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S texlive-most</span><br></pre></td></tr></table></figure>
+<p>具体可以参考：<a href="https://wiki.archlinux.org/index.php/TeX_Live" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/TeX_Live</a> 。</p>
+<h3 id="安装TexStudio"><a href="#安装TexStudio" class="headerlink" title="安装TexStudio"></a>安装TexStudio</h3><p>终端执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S texstudio</span><br></pre></td></tr></table></figure>
+<p>安装完成后可以在options中设置为中文界面，以及选择默认的编译器。</p>
+<p>用第一种方法安装，可能会导致TexStudio检索不到TexLive，推荐使用第二种方法安装。</p>
+<p>现在就可以开始Latex文章的撰写了！</p>
 
                 </div>
             </section>
@@ -177,14 +180,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="在Mnajaro Linux中安装TexLive" href="/2019/08/04/manjaro-install-texlive/">
-            ← 在Mnajaro Linux中安装TexLive
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Centos下搭建Django网站环境" href="/2019/04/20/django-nginx-uwsgi-server/">
-            Centos下搭建Django网站环境 →
+        <a class="next-post" title="Manjaro安装与优化全记录" href="/2019/08/03/Manjaro安装与优化全记录/">
+            Manjaro安装与优化全记录 →
         </a>
         
     </nav>
@@ -206,7 +205,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装manjaro"><span class="toc-text">安装manjaro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换源"><span class="toc-text">更换源</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更新系统"><span class="toc-text">更新系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装archlinuxcn-keyring"><span class="toc-text">安装archlinuxcn-keyring:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修改Home下的目录为英文"><span class="toc-text">修改Home下的目录为英文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装搜狗输入法"><span class="toc-text">安装搜狗输入法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#更换主题和图标"><span class="toc-text">更换主题和图标</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一"><span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Perl组件"><span class="toc-text">安装Perl组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载iso文件"><span class="toc-text">下载iso文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载iso文件"><span class="toc-text">加载iso文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动安装界面"><span class="toc-text">启动安装界面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二"><span class="toc-text">方法二</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装TexStudio"><span class="toc-text">安装TexStudio</span></a></li></ol></li></ol>
     </div>
 </div>
 
@@ -362,7 +361,7 @@
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">Manjaro安装与优化全记录</div>
+    <div class="floating-header-title">在Mnajaro Linux中安装TexLive</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
