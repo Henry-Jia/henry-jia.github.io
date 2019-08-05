@@ -1,5 +1,5 @@
 ---
-title: 在Mnajaro Linux中安装TexLive
+title: 在Manjaro Linux中安装TexLive
 date: 2019-08-04 21:49:06
 categories: 
 - Linux
