@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+
+
+<head>
+	
+	
+	<link rel="stylesheet" href="/css/allinone.min.css">
+
+	
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+	<title>Attention Is All You Need ! | 行闻</title>
+
+	<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+	<meta name="generator" content="hexo">
+	<meta name="author" content="Henry Jia">
+	<meta name="description" content="由Google Brain在2017年发布的*Attention Is All You Need*使得自注意力机制走进大众视野，其应用逐渐由机器翻译领域，拓展到了自然语言处理中的各项技术。由于我在深度学习、关系抽取等反面的研究需求，对该论文进行了详细研究。本文作为阅读笔记，对其进行了详细梳理，希望能为大家对其理解提供帮助。">
+
+	
+	<meta name="keywords" content>
+	
+
+	
+	<link rel="shortcut icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	<link rel="apple-touch-icon" href="https://i.loli.net/2017/11/26/5a19c0b50432e.png">
+	
+
+	
+	<meta name="theme-color" content="#3c484e">
+	<meta name="msapplication-TileColor" content="#3c484e">
+	
+
+	
+
+	
+
+	<meta property="og:site_name" content="行闻">
+	<meta property="og:type" content="article">
+	<meta property="og:title" content="Attention Is All You Need ! | 行闻">
+	<meta property="og:description" content="由Google Brain在2017年发布的*Attention Is All You Need*使得自注意力机制走进大众视野，其应用逐渐由机器翻译领域，拓展到了自然语言处理中的各项技术。由于我在深度学习、关系抽取等反面的研究需求，对该论文进行了详细研究。本文作为阅读笔记，对其进行了详细梳理，希望能为大家对其理解提供帮助。">
+	<meta property="og:url" content="http://henry-jia.github.io/2018/12/05/Attention Is All You Need !/">
+
+	
+	<meta property="article:published_time" content="2018-12-05T16:12:00+08:00"> 
+	<meta property="article:author" content="Henry Jia">
+	<meta property="article:published_first" content="行闻, /2018/12/05/Attention Is All You Need !/">
+	
+</head>
+
+<body class="post-template">
+	<div class="site-wrapper">
+		
+
+
+
+
+<header class="site-header outer" style="z-index: 999">
+    <div class="inner">
+        
+<nav class="site-nav"> 
+    <div class="site-nav-left">
+        <ul class="nav">
+            <li>
+                <a href="/" title="Home">HOME</a>
+            </li>
+            
+            
+            <li>
+                <a href="/about" title="ABOUT">ABOUT</a>
+            </li>
+            
+            <li>
+                <a href="/archives" title="ARCHIVES">ARCHIVES</a>
+            </li>
+            
+            
+        </ul> 
+    </div>
+    
+    <div class="search-button">
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+    </div>
+     
+    <div class="site-nav-right">
+        
+        <a href="#search" class="subscribe-button" style="margin: 0 10px;">Search ...</a>
+         
+        
+<div class="social-links">
+    
+    
+    <a class="social-link" title="github" href="https://github.com/henry-jia" target="_blank" rel="noopener">
+        <svg viewbox="0 0 1049 1024" xmlns="http://www.w3.org/2000/svg"><path d="M524.979332 0C234.676191 0 0 234.676191 0 524.979332c0 232.068678 150.366597 428.501342 358.967656 498.035028 26.075132 5.215026 35.636014-11.299224 35.636014-25.205961 0-12.168395-0.869171-53.888607-0.869171-97.347161-146.020741 31.290159-176.441729-62.580318-176.441729-62.580318-23.467619-60.841976-58.234462-76.487055-58.234463-76.487055-47.804409-32.15933 3.476684-32.15933 3.476685-32.15933 53.019436 3.476684 80.83291 53.888607 80.83291 53.888607 46.935238 79.963739 122.553122 57.365291 152.97411 43.458554 4.345855-33.897672 18.252593-57.365291 33.028501-70.402857-116.468925-12.168395-239.022047-57.365291-239.022047-259.012982 0-57.365291 20.860106-104.300529 53.888607-140.805715-5.215026-13.037566-23.467619-66.926173 5.215027-139.067372 0 0 44.327725-13.906737 144.282399 53.888607 41.720212-11.299224 86.917108-17.383422 131.244833-17.383422s89.524621 6.084198 131.244833 17.383422C756.178839 203.386032 800.506564 217.29277 800.506564 217.29277c28.682646 72.1412 10.430053 126.029806 5.215026 139.067372 33.897672 36.505185 53.888607 83.440424 53.888607 140.805715 0 201.64769-122.553122 245.975415-239.891218 259.012982 19.121764 16.514251 35.636014 47.804409 35.636015 97.347161 0 70.402857-0.869171 126.898978-0.869172 144.282399 0 13.906737 9.560882 30.420988 35.636015 25.205961 208.601059-69.533686 358.967656-265.96635 358.967655-498.035028C1049.958663 234.676191 814.413301 0 524.979332 0z"/></svg>
+    </a>
+    
+    
+    
+    
+    
+    
+</div>
+    </div>
+</nav>
+
+    </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+    <div class="inner">
+        <header class="post-full-header">
+            <section class="post-full-meta">
+                <time class="post-full-meta-date" datetime="2018-12-05T08:29:28.000Z" itemprop="datePublished">
+                    2018-12-5
+                </time>
+                
+                <span class="date-divider">/</span>
+                
+                <a href="/categories/论文笔记/">论文笔记</a>&nbsp;&nbsp;
+                
+                
+            </section>
+            <h1 class="post-full-title">Attention Is All You Need !</h1>
+        </header>
+        <article class="post-full ">
+            
+            <figure class="post-full-image" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/lisbon-4401269_1280.jpg)">
+            </figure>
+            
+            <section class="post-full-content">
+                <div id="lightgallery" class="markdown-body">
+                    <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>由Google Brain在2017年发布的<em>Attention Is All You Need</em>使得自注意力机制走进大众视野，其应用逐渐由机器翻译领域，拓展到了自然语言处理中的各项技术。由于我在深度学习、关系抽取等反面的研究需求，对该论文进行了详细研究。本文作为阅读笔记，对其进行了详细梳理，希望能为大家对其理解提供帮助。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/1.jpg" data-src="/images/Attention Is All You Need !/1.jpg"></p>
+<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><p>现存主要的序列转化模型都是基于复杂的循环神经网络或者卷积神经网络，它们都包含一个编码器和一个解码器。目前效果较好的模型，都是通过注意力机制来对编码器和解码器进行连接。我们提出一种新的简单网络架构Transformer，它仅仅基于注意力机制，完全抛弃了循环和卷积神经网络。两个机器翻译任务的实验表明，我们的模型在质量上更优越，同时更易于并行化，训练花费时间更短。在WMT 2014英语 - 德语翻译任务中达到28.4 BLEU，超过现有的最佳成绩，整体超过2 BLEU。在WMT 2014英语-法语翻译任务中，我们的模型在8个GPU上训练3.5天后，得到了一个新的单模型最高BLEU分数41.0。</p>
+<h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>循环神经网络模型通常沿输入和输出序列的符号位置来进行计算。将位置与计算时的步骤对齐，产生隐藏状态ht序列，作为先前隐藏状态ht-1和位置t的输入的函数。这种固有的序列性质排除了样本训练并行化的可能，这在较长的序列中变得更为严重，因为内存约束限制了跨样本的批处理。最近的有研究通过分解技巧和条件计算实现了计算效率的显著提高，同时后者也提高了模型性能。然而，序列计算的基本约束仍然存在。</p>
+<p>注意力机制已成为多种任务序列建模和转化模型中引人注目的组成部分，它允许对依赖关系进行建模，而不用考虑它们在输入或输出序列中的距离。然而，多数情况下这种注意力机制与循环神经网络结合使用。</p>
+<p>在这项工作中，我们提出了Transformer，没有循环，而是完全依赖于注意力机制来描述输入和输出之间的全局依赖关系。Transformer允许更多的并行计算，并且在8个P100 GPU上训练了长达12小时后，可以达到一个新的最高翻译水平。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>减少序列计算的目标构成了Extended Neural GPU、ByteNet和ConvS2S的基础，它们都是将卷积神经网络作为基础模块，并行计算所有输入和输出位置的隐藏表达。在这些模型中，关联任意输入和输出位置符号的运算数量会随着距离的增加而增加，对于ConvS2S呈线性增长，对于ByteNet呈对数增长，这使得学习远距离之间的依赖性变得更加困难。在Transformer中，通过多头注意力将该运算数量被减少到了一个常量，尽管由于位置的平均注意加权而导致有效分辨率有所降低。</p>
+<p>自注意力，有时也称为内部注意力，是为计算序列表达关联单序列不同位置的注意力机制。自注意力机制已经被成功应用于阅读理解、文本摘要、文本推理以及学习与任务无关的句子表征等。</p>
+<p>端到端的记忆网络是基于循环attention机制，而不是序列对齐的循环，并且已被证明在简单语言问答和语言建模任务中表现良好。</p>
+<p>然而，据我们所知，Transformer是第一个用来计算输入和输出表征的完全依赖于自注意力机制的转化模型，该模型中无需使用序列对齐的RNN或CNN。</p>
+<h3 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h3><p>这里，编码器映射一个用符号表示的输入序列(x1,…,xn) 到一个连续的表示z = (z1,…,zn)。根据z，解码器生成符号的一个输出序列(y1,…,ym) ，一次一个元素。在每一步中，模型都是自回归的，当生成下一个时，消耗先前生成的符号作为附加输入。</p>
+<p>Transformer遵循这种整体架构，编码器和解码器都使用self-attention堆叠和point-wise、完全连接的层，分别显示在图中的左半部分和右半部分。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/2.jpg" data-src="/images/Attention Is All You Need !/2.jpg"></p>
+<h4 id="编码器和解码器"><a href="#编码器和解码器" class="headerlink" title="编码器和解码器"></a>编码器和解码器</h4><p>编码器：编码器由N = 6 个完全相同的层堆叠而成。每一层都有两个子层。第一层是一个多头自注意力机制，第二层是一个简单的、位置完全连接的前馈网络。我们对每个子层再采用一个残差连接，接着进行层标准化。也就是说，每个子层的输出是LayerNorm(x + Sublayer(x))，其中Sublayer(x) 是由子层本身实现的函数。为了方便这些残差连接，模型中的所有子层以及嵌入层产生的输出维度都为dmodel = 512。</p>
+<p>解码器：解码器同样由N = 6 个完全相同的层堆叠而成。除了每个编码器层中的两个子层之外，解码器还插入第三个子层，该层对编码器堆栈的输出执行多头自注意力。与编码器类似，我们在每个子层再采用残差连接，然后进行层标准化。我们还修改解码器堆栈中的自注意力子层，以防止位置关注到后面的位置。这种掩码结合将输出嵌入偏移一个位置，确保对位置 i 的预测只能依赖位置小于 i 的已知输出。</p>
+<h4 id="注意力机制"><a href="#注意力机制" class="headerlink" title="注意力机制"></a>注意力机制</h4><p>Attention函数可以描述为将query和一组key-value对映射到输出，其中query、key、value和输出都是向量。输出是value的加权和，其中分配给每个value的权重通过query与相应key的兼容函数来计算。</p>
+<h5 id="缩放点积注意力"><a href="#缩放点积注意力" class="headerlink" title="缩放点积注意力"></a>缩放点积注意力</h5><p>我们称我们的特殊版的Attention为“Scaled Dot-Product Attention”。输入由query、dk 维的key和dv 维的value组成。我们计算query和所有key的点积、并分别用√dk相除，然后应用一个softmax函数以获得值的权重。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/3.png" data-src="/images/Attention Is All You Need !/3.png"></p>
+<p>在实践中，我们同时计算一组query的attention函数，并将它们组合成一个矩阵Q。 key和value也一起打包成矩阵 K 和 V 。我们计算输出矩阵为：</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/4.jpg" data-src="/images/Attention Is All You Need !/4.jpg"></p>
+<p>两个最常用的attention函数是加法attention和点积attention。除了缩放因子1/ √dk之外，点积attention与我们的算法相同。加法attention使用具有单个隐藏层的前馈网络计算兼容性函数。虽然两者在理论上的复杂性相似，但在实践中点积attention的速度更快、更节省空间，因为它可以使用高度优化的矩阵乘法代码来实现。</p>
+<p>当dk的值比较小的时候，这两个机制的性能相近，当dk比较大时，加法attention比不带缩放的点积attention性能好。我们怀疑，对于很大的dk值，点积大幅度增长，将softmax函数推向具有极小梯度的区域。为了抵消这种影响，我们缩小点积1/√dk倍。</p>
+<h5 id="多头注意力"><a href="#多头注意力" class="headerlink" title="多头注意力"></a>多头注意力</h5><p>我们发现将query、key和value分别用不同的、学到的线性投影，投影h倍到dk、dk和dv维效果更好，而不是用dmodel维的query、key和value执行单个attention函数。基于每个投影版本的query、key和value，我们并行执行attention函数，产生dv 维输出值。将它们连接并再次映射，产生最终值。</p>
+<p>多头注意力机制允许模型联合关注不同位置的不同表示子空间信息。如果只有一个attention head，它的平均值会削弱这个信息。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/5.jpg" data-src="/images/Attention Is All You Need !/5.jpg"></p>
+<p>我们采用h = 8 个并行attention层或head。对每个head，我们使用dk =dv =dmodel ∕ h = 64。由于每个head的大小减小，总的计算成本与具有全部维度的单个head attention相似。</p>
+<h5 id="本模型中的注意力"><a href="#本模型中的注意力" class="headerlink" title="本模型中的注意力"></a>本模型中的注意力</h5><p>Transformer中通过以下三种不同的方式来使用多头注意力：</p>
+<ul>
+<li><p>在“encoder-decoder attention”层，query来自前一个解码器层，key和value来自编码器的输出，这允许解码器中的每个位置能关注到输入序列中的所有位置。这模仿序列到序列模型中典型的编码器-解码器的attention机制。</p>
+</li>
+<li><p>编码器包含self-attention层。在self-attention层中，所有的key、value和query来自同一个地方，在这里就是来自于编码器中前一层的输出。编码器中的每个位置都可以关注编码器上一层的所有位置。</p>
+</li>
+<li><p>类似地，解码器中的self-attention层允许解码器中的每个位置都关注到解码器中的所有位置并包括该位置。我们需要防止解码器中的向左信息流来保持自回归属性。通过屏蔽softmax的输入中所有不合法连接的值（设置为-∞），我们在缩放点积attention中实现。</p>
+</li>
+</ul>
+<h4 id="基于位置的前馈网络"><a href="#基于位置的前馈网络" class="headerlink" title="基于位置的前馈网络"></a>基于位置的前馈网络</h4><p>除了attention子层之外，我们的编码器和解码器中的每个层都包含一个全连接的前馈网络，该前馈网络单独且相同地应用于每个位置。它由两个线性变换组成，之间有一个ReLU激活函数。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/6.jpg" data-src="/images/Attention Is All You Need !/6.jpg"></p>
+<p>尽管线性变换在不同位置上是相同的，但层与层之间使用的是不同的参数。它的另一种描述方式是两个内核大小为1的卷积。输入和输出的维度为dmodel = 512，内部层的维度为dff = 2048。</p>
+<h4 id="嵌入和Softmax"><a href="#嵌入和Softmax" class="headerlink" title="嵌入和Softmax"></a>嵌入和Softmax</h4><p>与其他序列转化模型相似，我们使用学习到的嵌入将输入词符和输出词符转化为dmodel维的向量。我们还使用普通的线性变换和softmax函数将解码器输出转换为预测的下一个词符的概率。在我们的模型中，两个嵌入层之间和pre-softmax线性变换共享相同的权重矩阵。在嵌入层中，我们将这些权重乘以√dmodel。</p>
+<h4 id="位置编码"><a href="#位置编码" class="headerlink" title="位置编码"></a>位置编码</h4><p>由于我们的模型不包含RNN和CNN，为了使得模型能够利用序列顺序，我们必须注入序列中关于词符相对或者绝对位置的一些信息。为此，我们将“位置编码”添加到编码器和解码器堆栈底部的输入嵌入中。位置编码和嵌入拥有相同的dmodel维度，所以它们俩可以相加。</p>
+<p>我们有多种位置编码可以选择，此工作中，我们使用不同频率的正弦和余弦函数：</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/7.jpg" data-src="/images/Attention Is All You Need !/7.jpg"></p>
+<p>其中 <em>pos</em> 是位置，<em>i</em> 是维度。也就是说，位置编码的每个维度对应于一个正弦曲线。这些波长形成一个几何级数，从2π 到10000 ⋅ 2π。我们选择这个函数是因为我们假设它允许模型很容易学习对相对位置的关注，因为对任意确定的偏移k, <em>PEpos+k</em>可以表示为PEpos的线性函数。</p>
+<p>我们还使用学习到的位置嵌入进行了试验，发现这两个版本产生几乎相同的结果（参见表 3 行(E)）。我们选择了正弦曲线，因为它可以允许模型推断比训练期间遇到的更长的序列。</p>
+<h3 id="为什么是自注意力机制"><a href="#为什么是自注意力机制" class="headerlink" title="为什么是自注意力机制"></a>为什么是自注意力机制</h3><p>本节，我们比较self-attention与循环层和卷积层的各个方面，它们通常用于映射一个可变长度符号序列表示(x1,…,xn) 到另一个等长的序列(z1,…,zn)，其中xi,zi ∈ ℝd，例如一个典型的序列转化编码器或解码器中的隐藏层。我们使用self-attention是考虑到解决三个问题。</p>
+<p>一个是每层计算的总复杂度。另一个是可以并行的计算量，以所需的最小序列运算的数量来衡量。</p>
+<p>第三个是网络中长距离依赖之间的路径长度。学习长距离依赖性是许多序列转化任务中的关键挑战。影响学习这种依赖性能力的一个关键因素是前向和后向信号必须在网络中传播的路径长度。输入和输出序列中任意位置组合之间的这些路径越短，学习远距离依赖性就越容易。因此，我们还比较了由不同层类型组成的网络中任意两个输入和输出位置之间的最大路径长度。</p>
+<p><img alt class="post-img b-lazy" href="/images/Attention Is All You Need !/8.jpg" data-src="/images/Attention Is All You Need !/8.jpg"></p>
+<p>如表1所示，self-attention层通过恒定数量的序列运算将所有位置连接在一起，而RNN层需要O(n) 序列运算。在计算复杂性方面，序列长度n 小于表示维度d 在机器翻译领域较为先进的模型中是最为常见的，例如单词表示法和字节对表示法，如表中所示这种情况下self-attention层比RNN层快。为了提高涉及很长序列的任务的计算性能，可以将self-attention限制在仅考虑大小为r 的邻域。这会将最大路径长度增加到O(n ∕ r)。我们计划在未来的工作中进一步探讨这种方法。</p>
+<p>核宽度为k &lt; n的单层卷积不会连接每一对输入和输出的位置。要这么做，在邻近核的情况下需要O(n∕k) 个卷积层， 在扩展卷积的情况下需要O(logk(n)) 个层，它们增加了网络中任意两个位置之间的最长路径的长度。卷积层通常比循环层更昂贵，与因子k有关。然而，可分卷积大幅减少复杂度到O(k ⋅n⋅d + n⋅d2)。然而，即使k = n，一个可分卷积的复杂度等同于self-attention层和point-wise前向层的组合，即我们的模型采用的方法。</p>
+<p>间接的好处是self-attention可以产生更具可解释性的模型。我们从我们的模型中研究attention的分布。每个attention head不仅清楚地学习执行不同的任务，许多似乎也展现出了与句子的句法和语义结构相关的行为。</p>
+
+                </div>
+            </section>
+        </article>
+    </div>
+
+    
+    <div style="height: 4vw;width: 100%"></div>
+    <nav id="gobottom" class="pagination">
+        
+        <a class="prev-post" title="Centos下搭建Django网站环境" href="/2019/04/20/django-nginx-uwsgi-server/">
+            ← Centos下搭建Django网站环境
+        </a>
+        
+        <span class="prev-next-post">•</span>
+        
+    </nav>
+
+    
+</main>
+
+<div class="toc-bar">
+    <div class="toc-btn-bar">
+        <a href="#site-main" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M793.024 710.272a32 32 0 1 0 45.952-44.544l-310.304-320a32 32 0 0 0-46.4 0.48l-297.696 320a32 32 0 0 0 46.848 43.584l274.752-295.328 286.848 295.808z"/></svg>
+        </a>
+        <div class="toc-btn toc-switch">
+            <svg class="toc-open" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M779.776 480h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M779.776 672h-387.2a32 32 0 0 0 0 64h387.2a32 32 0 0 0 0-64M256 288a32 32 0 1 0 0 64 32 32 0 0 0 0-64M392.576 352h387.2a32 32 0 0 0 0-64h-387.2a32 32 0 0 0 0 64M256 480a32 32 0 1 0 0 64 32 32 0 0 0 0-64M256 672a32 32 0 1 0 0 64 32 32 0 0 0 0-64"/></svg>
+            <svg class="toc-close hide" viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M512 960c-247.039484 0-448-200.960516-448-448S264.960516 64 512 64 960 264.960516 960 512 759.039484 960 512 960zM512 128.287273c-211.584464 0-383.712727 172.128262-383.712727 383.712727 0 211.551781 172.128262 383.712727 383.712727 383.712727 211.551781 0 383.712727-172.159226 383.712727-383.712727C895.712727 300.415536 723.551781 128.287273 512 128.287273z"/><path d="M557.05545 513.376159l138.367639-136.864185c12.576374-12.416396 12.672705-32.671738 0.25631-45.248112s-32.704421-12.672705-45.248112-0.25631l-138.560301 137.024163-136.447897-136.864185c-12.512727-12.512727-32.735385-12.576374-45.248112-0.063647-12.512727 12.480043-12.54369 32.735385-0.063647 45.248112l136.255235 136.671523-137.376804 135.904314c-12.576374 12.447359-12.672705 32.671738-0.25631 45.248112 6.271845 6.335493 14.496116 9.504099 22.751351 9.504099 8.12794 0 16.25588-3.103239 22.496761-9.247789l137.567746-136.064292 138.687596 139.136568c6.240882 6.271845 14.432469 9.407768 22.65674 9.407768 8.191587 0 16.352211-3.135923 22.591372-9.34412 12.512727-12.480043 12.54369-32.704421 0.063647-45.248112L557.05545 513.376159z"/></svg>
+        </div>
+        <a href="#gobottom" class="toc-btn">
+            <svg viewbox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M231.424 346.208a32 32 0 0 0-46.848 43.584l297.696 320a32 32 0 0 0 46.4 0.48l310.304-320a32 32 0 1 0-45.952-44.544l-286.848 295.808-274.752-295.36z"/></svg>
+        </a>
+    </div>
+    <div class="toc-main">
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#摘要"><span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#引言"><span class="toc-text">引言</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#背景"><span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型架构"><span class="toc-text">模型架构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#编码器和解码器"><span class="toc-text">编码器和解码器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意力机制"><span class="toc-text">注意力机制</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#缩放点积注意力"><span class="toc-text">缩放点积注意力</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#多头注意力"><span class="toc-text">多头注意力</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#本模型中的注意力"><span class="toc-text">本模型中的注意力</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#基于位置的前馈网络"><span class="toc-text">基于位置的前馈网络</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#嵌入和Softmax"><span class="toc-text">嵌入和Softmax</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#位置编码"><span class="toc-text">位置编码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么是自注意力机制"><span class="toc-text">为什么是自注意力机制</span></a></li></ol>
+    </div>
+</div>
+
+
+
+	</div>
+	
+
+
+<aside class="read-next outer">
+    <div class="inner">
+        <div class="read-next-feed">
+            
+            
+
+<article class="read-next-card" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/blue-sky-clear-sky-cold-346529.jpg)">
+  <header class="read-next-card-header">
+    <small class="read-next-card-header-sitetitle">&mdash; 行闻 &mdash;</small>
+    <h3 class="read-next-card-header-title">最新文章</h3>
+  </header>
+  <div class="read-next-divider">
+    <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24">
+      <path d="M13 14.5s2 3 5 3 5.5-2.463 5.5-5.5S21 6.5 18 6.5c-5 0-7 11-12 11C2.962 17.5.5 15.037.5 12S3 6.5 6 6.5s4.5 3.5 4.5 3.5"/>
+    </svg>
+  </div>
+  <div class="read-next-card-content">
+    <ul>
+      
+      
+      
+      <li>
+        <a href="/2019/08/04/manjaro-install-texlive/">在Manjaro Linux中安装TexLive</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2019/08/03/Manjaro安装与优化全记录/">Manjaro安装与优化全记录</a>
+      </li>
+      
+      
+      
+      <li>
+        <a href="/2019/04/20/django-nginx-uwsgi-server/">Centos下搭建Django网站环境</a>
+      </li>
+      
+      
+      
+      
+    </ul>
+  </div>
+  <footer class="read-next-card-footer">
+    <a href="/archives">  MORE  → </a>
+  </footer>
+</article>
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/blue-sky-clear-sky-cold-346529.jpg)">
+    <header class="read-next-card-header" style="padding-bottom: 20px">
+        <h3 class="read-next-card-header-title">分类</h3>
+    </header>
+    <div class="read-next-card-content">
+        <ul>
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Django/">Django</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/论文笔记/">论文笔记</a></li></ul>
+        </ul>
+    </div>
+</article>
+
+
+            
+            
+            
+
+<article class="read-next-card" style="background-image: url(http://pvnmwgual.bkt.clouddn.com/blue-sky-clear-sky-cold-346529.jpg)">
+	<header class="read-next-card-header" style="padding-bottom: 20px">
+		<h3 class="read-next-card-header-title">标签云</h3>
+	</header>
+	<div class="read-next-card-content-ext">
+		<a href="/tags/django/" style="font-size: 14px;">django</a> <a href="/tags/latex/" style="font-size: 14px;">latex</a> <a href="/tags/linux/" style="font-size: 14px;">linux</a> <a href="/tags/manjaro/" style="font-size: 24px;">manjaro</a> <a href="/tags/web服务器/" style="font-size: 14px;">web服务器</a> <a href="/tags/机器翻译/" style="font-size: 14px;">机器翻译</a> <a href="/tags/深度学习/" style="font-size: 14px;">深度学习</a> <a href="/tags/自注意力机制/" style="font-size: 14px;">自注意力机制</a>
+	</div>
+</article>
+
+            
+        </div>
+    </div>
+</aside>
+
+	
+
+
+
+
+<div id="search" class="search-overlay subscribe-overlay">
+    <div class="search-form">
+        
+        <img class="search-overlay-logo" src="https://i.loli.net/2017/11/26/5a19c0b50432e.png" alt="行闻">
+        
+        <input id="local-search-input" class="search-input" type="text" name="search" placeholder="搜索 ...">
+        <a class="search-overlay-close" href="#"></a>
+    </div>
+    <div id="local-search-result"></div>
+</div>
+
+
+<footer class="site-footer outer">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+	<div class="site-footer-content inner">
+		<section class="copyright">
+			<a href="/" title="行闻">行闻</a>
+			&copy; 2019
+		</section>
+		<section class="count">
+			<span id="busuanzi_container_site_uv">总访客：<span id="busuanzi_value_site_uv"></span>次</span>
+			&nbsp;💖&nbsp;
+			<span id="busuanzi_container_site_pv">总浏览：<span id="busuanzi_value_site_pv"></span>次</span>
+		</section>
+            	<nav class="site-footer-nav">
+            		
+            		<a href="https://hexo.io" title="Hexo" target="_blank" rel="noopener">Hexo</a>
+            		<a href="https://github.com/xzhih/hexo-theme-casper" title="Casper" target="_blank" rel="noopener">Casper</a>
+            	</nav>
+        </div>
+</footer>
+
+	
+
+
+<script>
+    if(window.navigator && navigator.serviceWorker) {
+        navigator.serviceWorker.getRegistrations()
+        .then(function(registrations) {
+            for(let registration of registrations) {
+                registration.unregister();
+            }
+        });
+    }
+</script>
+
+
+
+
+
+
+
+<div class="floating-header">
+	<div class="floating-header-logo">
+        <a href="/" title="行闻">
+			
+                <img src="https://i.loli.net/2017/11/26/5a19c0b50432e.png" alt="行闻 icon">
+			
+            <span>行闻</span>
+        </a>
+    </div>
+    <span class="floating-header-divider">&mdash;</span>
+    <div class="floating-header-title">Attention Is All You Need !</div>
+    <progress class="progress" value="0">
+        <div class="progress-container">
+            <span class="progress-bar"></span>
+        </div>
+    </progress>
+</div>
+
+
+
+
+
+<script src="/js/mix/post-lazy-local.min.js"></script>
+
+<script>;(function() {var bLazy = new Blazy()})();</script>
+
+
+
+
+<script src="/js/lightgallery.min.js"></script>
+<link rel="stylesheet" href="/css/lightgallery.min.css">
+<script>
+    lightGallery(document.getElementById('lightgallery'), {
+        selector: '.post-img'
+    });
+</script>
+
+
+
+
+
+
+
+
+
+<script>searchFunc("/")</script>
+
+
+
+
+
+</body>
+</html>
