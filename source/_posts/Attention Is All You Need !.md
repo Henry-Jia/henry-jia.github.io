@@ -6,8 +6,8 @@ tags:
   - 机器翻译
 categories: 论文笔记
 date: 2018-12-05 16:29:28
-cover_img: http://pvnmwgual.bkt.clouddn.com/lisbon-4401269_1280.jpg
-feature_img: http://pvnmwgual.bkt.clouddn.com/lisbon-4401269_1280.jpg
+cover_img: /images/0bfc8.jpg
+feature_img: /images/0bfc8.jpg
 description: 由Google Brain在2017年发布的*Attention Is All You Need*使得自注意力机制走进大众视野，其应用逐渐由机器翻译领域，拓展到了自然语言处理中的各项技术。由于我在深度学习、关系抽取等反面的研究需求，对该论文进行了详细研究。本文作为阅读笔记，对其进行了详细梳理，希望能为大家对其理解提供帮助。
 ---
 
