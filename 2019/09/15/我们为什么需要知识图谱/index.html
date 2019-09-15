@@ -17,16 +17,16 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>在Manjaro Linux中安装TexLive | 行闻</title>
+	<title>我们为什么需要知识图谱？为什么数据表就不行了？ | 行闻</title>
 
 	<meta name="HandheldFriendly" content="True">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 	<meta name="generator" content="hexo">
 	<meta name="author" content="Henry Jia">
-	<meta name="description" content="学习在manjaro linux系统中搭建Latex写作环境...">
+	<meta name="description" content="如今，知识图谱越来越火爆，无论是在理论研究、技术研究还是商业应用方面，都成为了领域热点。然而，知识图谱迸发的核心动力到底源自哪里？">
 
 	
-	<meta name="keywords" content="latex,linux,manjaro">
+	<meta name="keywords" content="knowledge graph,graph database">
 	
 
 	
@@ -45,14 +45,14 @@
 
 	<meta property="og:site_name" content="行闻">
 	<meta property="og:type" content="article">
-	<meta property="og:title" content="在Manjaro Linux中安装TexLive | 行闻">
-	<meta property="og:description" content="学习在manjaro linux系统中搭建Latex写作环境...">
-	<meta property="og:url" content="http://henry-jia.github.io/2019/08/04/manjaro-install-texlive/">
+	<meta property="og:title" content="我们为什么需要知识图谱？为什么数据表就不行了？ | 行闻">
+	<meta property="og:description" content="如今，知识图谱越来越火爆，无论是在理论研究、技术研究还是商业应用方面，都成为了领域热点。然而，知识图谱迸发的核心动力到底源自哪里？">
+	<meta property="og:url" content="http://henry-jia.github.io/2019/09/15/我们为什么需要知识图谱/">
 
 	
-	<meta property="article:published_time" content="2019-08-04T21:08:00+08:00"> 
+	<meta property="article:published_time" content="2019-09-15T20:09:00+08:00"> 
 	<meta property="article:author" content="Henry Jia">
-	<meta property="article:published_first" content="行闻, /2019/08/04/manjaro-install-texlive/">
+	<meta property="article:published_first" content="行闻, /2019/09/15/我们为什么需要知识图谱/">
 	
 </head>
 
@@ -119,57 +119,103 @@
     <div class="inner">
         <header class="post-full-header">
             <section class="post-full-meta">
-                <time class="post-full-meta-date" datetime="2019-08-04T13:49:06.000Z" itemprop="datePublished">
-                    2019-08-4
+                <time class="post-full-meta-date" datetime="2019-09-15T12:26:00.000Z" itemprop="datePublished">
+                    2019-09-15
                 </time>
                 
                 <span class="date-divider">/</span>
                 
-                <a href="/categories/Linux/">Linux</a>&nbsp;&nbsp;
+                <a href="/categories/Knowledge-Graph/">Knowledge Graph</a>&nbsp;&nbsp;
                 
                 
             </section>
-            <h1 class="post-full-title">在Manjaro Linux中安装TexLive</h1>
+            <h1 class="post-full-title">我们为什么需要知识图谱？为什么数据表就不行了？</h1>
         </header>
         <article class="post-full ">
             
-            <figure class="post-full-image" style="background-image: url(/images/5605b.jpg)">
+            <figure class="post-full-image" style="background-image: url(/images/55432.jpg)">
             </figure>
             
             <section class="post-full-content">
                 <div id="lightgallery" class="markdown-body">
-                    <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近开始尝试使用Latex进行论文写作，根据网友推荐，选择Texlive作为基本环境，windows机器上可以很方便的安装Texlive，在Manjaro Linux系统下也不算复杂，我将我的安装过程写在这里与大家分享。</p>
-<h2 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h2><p>推荐使用方法二。</p>
-<h3 id="安装Perl组件"><a href="#安装Perl组件" class="headerlink" title="安装Perl组件"></a>安装Perl组件</h3><p>终端运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S perl-tk</span><br></pre></td></tr></table></figure>
-<h3 id="下载iso文件"><a href="#下载iso文件" class="headerlink" title="下载iso文件"></a>下载iso文件</h3><p>在清华大学镜像站下载：<a href="https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/" target="_blank" rel="noopener">https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/Images/</a> </p>
-<p>我选择的是 texlive2019.iso，点击即开始下载，3.3G有点大。</p>
-<h3 id="加载iso文件"><a href="#加载iso文件" class="headerlink" title="加载iso文件"></a>加载iso文件</h3><p>终端运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo mount -o loop /path/to/texlive2019-20190410.iso /mnt</span><br></pre></td></tr></table></figure>
-<p>如果提示：mount: /mnt: 警告：设备写保护，使用只读方式挂载. 忽略即可。</p>
-<h3 id="启动安装界面"><a href="#启动安装界面" class="headerlink" title="启动安装界面"></a>启动安装界面</h3><p>终端执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">sudo ./install-tl -gui</span><br></pre></td></tr></table></figure>
-<p>出现图形化安装界面，一般不需进行个性化设置，点击安装即可，喝杯水耐心等待安装完成。</p>
-<p>添加环境变量，运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo nano ~/.bashrc</span><br></pre></td></tr></table></figure>
-<p>在文件末尾，添加如下内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># texlive 2019</span></span><br><span class="line"><span class="built_in">export</span> MANPATH=<span class="variable">$&#123;MANPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/doc/man</span><br><span class="line"><span class="built_in">export</span> INFOPATH=<span class="variable">$&#123;INFOPATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/doc/info</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$&#123;PATH&#125;</span>:/usr/<span class="built_in">local</span>/texlive/2019/bin/x86_64-linux</span><br></pre></td></tr></table></figure>
-<p>别忘记卸载镜像：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo umount /mnt/</span><br></pre></td></tr></table></figure>
-<p>测试，新建test.tex文件，添加如下内容：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">\documentclass&#123;article&#125;</span><br><span class="line">\begin&#123;document&#125;</span><br><span class="line">hello \LaTeX</span><br><span class="line">\end&#123;document&#125;</span><br></pre></td></tr></table></figure>
-<p>然后在终端运行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xelatex /path/to/test.tex</span><br></pre></td></tr></table></figure>
-<p>如安装成功，得到如下输出：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex)</span><br><span class="line"> restricted \write18 enabled.</span><br><span class="line">entering extended mode</span><br><span class="line">(./textest.tex</span><br><span class="line">LaTeX2e &lt;2018-12-01&gt;</span><br><span class="line">(/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/tex/latex/base/article.cls</span><br><span class="line">Document Class: article 2018/09/03 v1.4i Standard LaTeX document class</span><br><span class="line">(/usr/<span class="built_in">local</span>/texlive/2019/texmf-dist/tex/latex/base/size10.clo))</span><br><span class="line">No file textest.aux.</span><br><span class="line">[1] (./textest.aux) )</span><br><span class="line">Output written on textest.pdf (1 page).</span><br><span class="line">Transcript written on textest.log.</span><br></pre></td></tr></table></figure>
-<h2 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h2><p>Archlinux已经有了有关texlive的包，简单的方法就是执行以下命令直接安装：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S texlive-most</span><br></pre></td></tr></table></figure>
-<p>具体可以参考：<a href="https://wiki.archlinux.org/index.php/TeX_Live" target="_blank" rel="noopener">https://wiki.archlinux.org/index.php/TeX_Live</a> 。</p>
-<h3 id="安装TexStudio"><a href="#安装TexStudio" class="headerlink" title="安装TexStudio"></a>安装TexStudio</h3><p>终端执行以下命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pacman -S texstudio</span><br></pre></td></tr></table></figure>
-<p>安装完成后可以在options中设置为中文界面，以及选择默认的编译器。</p>
-<p>用第一种方法安装，可能会导致TexStudio检索不到TexLive，推荐使用第二种方法安装。</p>
-<p>现在就可以开始Latex文章的撰写了！</p>
+                    <h3 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h3><p>知识图谱于2012年5月17日由Google正式提出，其初衷是为了提高搜索引擎的能力。随着人工智能的技术发展和应用，作为关键技术之一，已被广泛应用于智能搜索、智能问答、个性化推荐、内容分发等领域。</p>
+<p>知识图谱在本质上是描述实体间关系的语义网络，图数据库对于它来说是一个很好的容器。相似的，知识图谱的节点表示实体或概念，边则由属性或关系构成。根据覆盖范围而言，知识图谱可分为开放域通用知识图谱和垂直行业知识图谱。</p>
+<p>知识图谱中的基本概念：</p>
+<p>实体: 指的是具有可区别性且独立存在的某种事物。如某一个人、某一个城市、某一种植物等、某一种商品等等。世界万物有具体事物组成，此指实体。如图1的“中国”、“美国”、“日本”等。，实体是知识图谱中的最基本元素，不同的实体间存在不同的关系。</p>
+<p>语义类（概念）：具有同种特性的实体构成的集合，如国家、民族、书籍、电脑等。 概念主要指集合、类别、对象类型、事物的种类，例如人物、地理等。</p>
+<p>内容: 通常作为实体和语义类的名字、描述、解释等，可以由文本、图像、音视频等来表达。</p>
+<p>属性(值): 从一个实体指向它的属性值。不同的属性类型对应于不同类型属性的边。属性值主要指对象指定属性的值。如图1所示的“面积”、“人口”、“首都”是几种不同的属性。属性值主要指对象指定属性的值，例如960万平方公里等。</p>
+<p>关系: 形式化为一个函数，它把k个点映射到一个布尔值。在知识图谱上，关系则是一个把k个图节点(实体、语义类、属性值)映射到布尔值的函数。</p>
+<p>基于上述定义，三元组是知识图谱的一种通用表示方式，如下图所示，中国是一个实体，北京是一个实体，中国-首都-北京 是一个（实体-关系-实体）的三元组样例。北京是一个实体 ，人口是一种属性2069.3万是属性值。北京-人口-2069.3万构成一个（实体-属性-属性值）的三元组样例。</p>
+<p><img alt="微信图片_20170930152906.jpg" class="post-img b-lazy" href="http://www.talkwithtrend.com/home/attachment/201709/30/938893_150675655515508.jpg" data-src="http://www.talkwithtrend.com/home/attachment/201709/30/938893_150675655515508.jpg"></p>
+<p>知识图谱用节点和关系所组成的图谱，为真实世界的各个场景直观地建模，运用“图”这种基础性、通用性的“语言”，“高保真”地表达这个多姿多彩世界的各种关系，并且非常直观、自然、直接和高效，不需要中间过程的转换和处理——这种中间过程的转换和处理，往往把问题复杂化，或者遗漏掉很多有价值的信息。总结起来，图数据库中存储的知识图谱有以下几个优势：</p>
+<p>（1）关系的表达能力强</p>
+<p>传统数据库通常通过表格、字段等方式进行读取，而关系的层级及表达方式多种多样，且基于图论和概率图模型，可以处理复杂多样的关联分析，满足企业各种角色关系的分析和管理需要。</p>
+<p>（2）像人类思考一样去做分析</p>
+<p>基于知识图谱的交互探索式分析，可以模拟人的思考过程去发现、求证、推理，业务人员自己就可以完成全部过程，不需要专业人员的协助。</p>
+<p>（3）知识学习</p>
+<p>利用交互式机器学习技术，支持根据推理、纠错、标注等交互动作的学习功能，不断沉淀知识逻辑和模型，提高系统智能性，将知识沉淀在企业内部，降低对经验的依赖。</p>
+<p>（4）高速反馈</p>
+<p>图式的数据存储方式，相比传统存储方式，数据调取速度更快，图库可计算超过百万潜在的实体的属性分布，可实现秒级返回结果，真正实现人机互动的实时响应，让用户可以做到即时决策。</p>
+<p>然而知识图谱仅仅是纸上谈兵，在应用实践中落地则需要图数据库为其提供肉身。</p>
+<h3 id="图数据库"><a href="#图数据库" class="headerlink" title="图数据库"></a>图数据库</h3><p>在数据结构中，图是由节点和关系两个元素构成，图数据库同样由这两部分构成。其中，节点表示实体（人、物、地点等），关系则代表两个实体之间的联系。</p>
+<p>图数据库是一种非关系型数据库，它应用图形理论存储实体之间的关系信息。最常见例子就是社会网络中人与人之间的关系。关系型数据库用于存储“关系型”数据的效果并不好，可以说关系型数据库是最不擅长存储关系的数据库，其查询复杂、缓慢，而图形数据库的独特设计恰恰弥补了这个缺陷。</p>
+<p>举个例子：假设某关系型数据库中有这么几张用户、订单、商品表：</p>
+<p><img alt="image" class="post-img b-lazy" href="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20180716185458/relational-database-rdbms-model-example.jpg" data-src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20180716185458/relational-database-rdbms-model-example.jpg"></p>
+<p>当我们要查询：“用户购买了那些商品？” 或者 “该商品有哪些客户购买过？” 需要开发人员JOIN几张表，效率非常低下。而“购买该产品的客户还购买了哪些商品？”类似的查询则更难实现。</p>
+<p>关系型数据库需要表示多对多关系时，我们常常需要创建一个关联表来记录不同实体的多对多关系，而且这些关联表常常不用来记录信息。如果两个实体之间拥有多种关系，那么我们就需要在它们之间创建多个关联表。而在图数据库中，我们只需要在两个实体节点之间建立一条有向的线来表示某种关系。相对于关系数据库中的各种关联表，图形数据库中的关系可以通过关系能够包含属性这一功能来提供更为丰富的关系展现方式。标记属性图模型：</p>
+<p><img alt="关系属性" class="post-img b-lazy" href="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170731095054/Property-Graph-Concepts-Simple.svg" data-src="https://s3.amazonaws.com/dev.assets.neo4j.com/wp-content/uploads/20170731095054/Property-Graph-Concepts-Simple.svg"></p>
+<p>由此可以看出，在面对大量的实体和关系时，在理论上图数据库已经展示出了更有效的存储和查询。在实践中，《Neo4j in Action》这本书的作者在关系型数据库和图数据库(Neo4j)之间进行了实验：</p>
+<p><img alt="image" class="post-img b-lazy" href="https://s2.ax1x.com/2019/02/21/kR4tKg.md.png" data-src="https://s2.ax1x.com/2019/02/21/kR4tKg.md.png"></p>
+<p>他们的实验试图在一个社交网络里找到最大深度为5的朋友的朋友。他们的数据集包括100万人，每人约有50个朋友。实验结果如下：</p>
+<table>
+<thead>
+<tr>
+<th>深度</th>
+<th>MySQL执行时间(s)</th>
+<th>Neo4j执行时间(s)</th>
+<th>返回记录数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>0.016</td>
+<td>0.01</td>
+<td>~2500</td>
+</tr>
+<tr>
+<td>3</td>
+<td>30.267</td>
+<td>0.168</td>
+<td>~110 000</td>
+</tr>
+<tr>
+<td>4</td>
+<td>1543.505</td>
+<td>1.359</td>
+<td>~600 000</td>
+</tr>
+<tr>
+<td>5</td>
+<td>未完成</td>
+<td>2.132</td>
+<td>~800 000</td>
+</tr>
+</tbody>
+</table>
+<p>在深度为2时（即朋友的朋友），两种数据库性能相差不是很明显；深度为3时(即朋友的朋友的朋友)，很明显，关系型数据库的响应时间30s，已经变得不可接受了；深度到4时，关系数据库需要近半个小时才能返回结果，使其无法应用于在线系统；深度到5时，关系型数据库已经无法完成查询。而对于图数据库Neo4j，深度从3到5，其响应时间均在3秒以内。</p>
+<p>可以看出，对于图数据库来说，数据量越大，越复杂的关联查询，约有利于体现其优势。从深度为4/5的查询结果我们可以看出，图数据库返回了整个社交网络一半以上的人数，而关系型数据库此时已经束手无策。</p>
+<p>从上文中我们可以看出，知识图谱更偏向于理论，图数据库更像一个容器或物理实现。知识图谱的很多优势都依赖于图数据库的存储方式，图数据库为知识图谱的大范围实际应用提供了可能。</p>
+<h3 id="面临的问题与挑战"><a href="#面临的问题与挑战" class="headerlink" title="面临的问题与挑战"></a>面临的问题与挑战</h3><p>知识图谱的构建：大规模知识的自动抽取技术仍处于基础阶段，虽然近年得益于深度学习的快速发展，使得自然语言处理技术有了很大的进步，对于测试数据取得了不错的效果，但在真实的应用环境中，知识抽取的准确性仍然有待提高。目前的工业实践中，仍需要投入大量人力进行知识标注。</p>
+<p>知识图谱的存储：虽然目前图数据库已经可以用于知识图谱的存储，但对于海量的不断增长的数据，在存储、查询、更新方面依然有待提高。</p>
+<p>知识推理：知识图谱作为人工智能的知识基石，实现实体间关系的自动推理是机器更加智能化的必经之路，而在这方面，我们的技术和人的大脑还差很远，尤其是在人类世界常识方面。</p>
+<p>参考：</p>
+<ul>
+<li><a href="https://baike.baidu.com/item/%E5%9B%BE%E5%BD%A2%E6%95%B0%E6%8D%AE%E5%BA%93/5199451" target="_blank" rel="noopener">百度百科-图形数据库</a></li>
+<li><a href="https://www.cnblogs.com/mantoudev/p/10414495.html" target="_blank" rel="noopener">越来越火的图数据库究竟是什么？</a></li>
+<li>最全知识图谱综述: 概念以及构建技术</li>
+</ul>
 
                 </div>
             </section>
@@ -180,14 +226,10 @@
     <div style="height: 4vw;width: 100%"></div>
     <nav id="gobottom" class="pagination">
         
-        <a class="prev-post" title="我们为什么需要知识图谱？为什么数据表就不行了？" href="/2019/09/15/我们为什么需要知识图谱/">
-            ← 我们为什么需要知识图谱？为什么数据表就不行了？
-        </a>
-        
         <span class="prev-next-post">•</span>
         
-        <a class="next-post" title="Manjaro安装与优化全记录" href="/2019/08/03/Manjaro安装与优化全记录/">
-            Manjaro安装与优化全记录 →
+        <a class="next-post" title="在Manjaro Linux中安装TexLive" href="/2019/08/04/manjaro-install-texlive/">
+            在Manjaro Linux中安装TexLive →
         </a>
         
     </nav>
@@ -209,7 +251,7 @@
         </a>
     </div>
     <div class="toc-main">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#前言"><span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法一"><span class="toc-text">方法一</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Perl组件"><span class="toc-text">安装Perl组件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#下载iso文件"><span class="toc-text">下载iso文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#加载iso文件"><span class="toc-text">加载iso文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#启动安装界面"><span class="toc-text">启动安装界面</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#方法二"><span class="toc-text">方法二</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装TexStudio"><span class="toc-text">安装TexStudio</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#知识图谱"><span class="toc-text">知识图谱</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#图数据库"><span class="toc-text">图数据库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#面临的问题与挑战"><span class="toc-text">面临的问题与挑战</span></a></li></ol>
     </div>
 </div>
 
@@ -369,7 +411,7 @@
         </a>
     </div>
     <span class="floating-header-divider">&mdash;</span>
-    <div class="floating-header-title">在Manjaro Linux中安装TexLive</div>
+    <div class="floating-header-title">我们为什么需要知识图谱？为什么数据表就不行了？</div>
     <progress class="progress" value="0">
         <div class="progress-container">
             <span class="progress-bar"></span>
