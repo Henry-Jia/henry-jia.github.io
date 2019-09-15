@@ -6,8 +6,8 @@ categories:
 tags:
 - manjaro
 - linux
-cover_img: http://pvnmwgual.bkt.clouddn.com/manjaro.png
-feature_img: http://pvnmwgual.bkt.clouddn.com/manjaro.png
+cover_img: /images/4a3b5.jpg
+feature_img: /images/4a3b5.jpg
 description: 学习安装当前较受欢迎的manjaro linux系统，并对其进行优化...
 keywords: linux,manjaro,gnome
 ---
