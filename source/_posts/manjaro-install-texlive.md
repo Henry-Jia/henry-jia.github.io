@@ -6,8 +6,8 @@ categories:
 tags:
 - manjaro
 - latex
-cover_img: http://pvnmwgual.bkt.clouddn.com/desk-email-laptop-7112.jpg
-feature_img: http://pvnmwgual.bkt.clouddn.com/desk-email-laptop-7112.jpg
+cover_img: /images/5605b.jpg
+feature_img: /images/5605b.jpg
 description: 学习在manjaro linux系统中搭建Latex写作环境...
 keywords: latex,linux,manjaro
 ---
